@@ -35,7 +35,7 @@ Node* tree_maximum(Tree* tree)
 //TODO: Include iterative version
 void inorder_tree_walk(Node* root)
 {
-    if (root != NULL)
+    if(root != NULL)
     {
         inorder_tree_walk(root->left);
         printf("%d\n", root->value);    //TODO: Make visiting a generic thing, we may take a function pointer
@@ -46,7 +46,7 @@ void inorder_tree_walk(Node* root)
 //TODO: Include iterative version
 void preorder_tree_walk(Node* root)
 {
-    if (root != NULL)
+    if(root != NULL)
     {
         printf("%d\n", root->value); //TODO: Make visiting a generic thing, we may take a function pointer
         preorder_tree_walk(root->left);
@@ -57,7 +57,7 @@ void preorder_tree_walk(Node* root)
 //TODO: Include iterative version
 void postorder_tree_walk(Node* root)
 {
-    if (root != NULL)
+    if(root != NULL)
     {
         postorder_tree_walk(root->left);
         postorder_tree_walk(root->right);
@@ -68,10 +68,10 @@ void postorder_tree_walk(Node* root)
 //TODO: Include iterative version
 Node* search(Node* root, int key)    //TODO: the key should actually be a predicate, and we find the first key that satisfies the predicate
 {
-    if (root == NULL || root->value == key)
+    if(root == NULL || root->value == key)
         return root;    
 
-    if (key < root->value)           //TODO: the predicate needs to be complemented by a comparator too!
+    if(key < root->value)           //TODO: the predicate needs to be complemented by a comparator too!
         return search(root->left, key);
 
     return search(root->right, key);
@@ -80,7 +80,7 @@ Node* search(Node* root, int key)    //TODO: the key should actually be a predic
 //TODO: Include iterative version
 Node* minimum(Node* root)
 {
-    if (root->left != NULL)
+    if(root->left != NULL)
         return minimum(root->left);
     return root;
 }
@@ -88,7 +88,7 @@ Node* minimum(Node* root)
 //TODO: Include iterative version
 Node* maximum(Node* root)
 {
-    if (root->right != NULL)
+    if(root->right != NULL)
         return maximum(root->right);
     return root;
 }
@@ -140,16 +140,16 @@ void tree_insert(Tree* tree, int key)
 
 void insert(int key, Node* root, Node* parent) 
 {
-    if (key < root->value)
+    if(key < root->value)
     {
-        if (root->left == NULL) 
+        if(root->left == NULL)
             root->left = create_node(key, root);
         else
             insert(key, root->left, root);
     }
     else
     {
-        if (root->right == NULL)
+        if(root->right == NULL)
             root->right = create_node(key, root);
         else
             insert(key, root->right, root);
@@ -179,7 +179,7 @@ void tree_delete(Tree* tree, Node* node)
     else 
     {
         Node* successor_node = successor(node);
-        if (successor_node != node->right)
+        if(successor_node != node->right)
         {
             transplant(tree, successor_node, successor_node->right);
             successor_node->right = node->right;
