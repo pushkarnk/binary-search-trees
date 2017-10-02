@@ -18,10 +18,8 @@ void test_insertion(Tree* t, int array[], int count)
 void test_search(Tree* t, int keys[], int results[], int count)
 {
     START(test_search);
-    for(int i = 0; i<count; i++)
-    {
-        if ((tree_search(t, keys[i]) != NULL) != results[i])
-        {
+    for(int i = 0; i<count; i++) {
+        if ((tree_search(t, keys[i]) != NULL) != results[i]) {
              FAIL(test_search);
              exit(1);
         }
@@ -44,8 +42,7 @@ void test_max_min(Tree* t, int expected_max, int expected_min)
 void test_deletion(Tree* t, int remove_keys[], int count)
 {
     START(test_deletion); 
-    for(int i=0; i<count; i++)
-    {
+    for(int i=0; i<count; i++) {
         Node* found = tree_search(t, remove_keys[i]);
         if(found)
             tree_delete(t, found);
